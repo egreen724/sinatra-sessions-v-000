@@ -21,7 +21,7 @@ class App < Sinatra::Base
 
   get '/set' 
   
-    session[:foo] = 'hello'
+    #session[:foo] = 'hello'
     
     if session[:foo] == 'hello'
       redirect '/fetch'
@@ -61,5 +61,5 @@ class App < Sinatra::Base
   get '/finish' do
     "Hopefully that explains a little more about the concept of sessions.\nThe session is simply a way to store user data on a temporary basis.\nIn any web application, a user ID is typically used as a session ID.\nThis is because an ID attribute of a user is a unique identifier\nthat will always be distinguishable from other user ID attributes."
   end
-end 
+
 end 

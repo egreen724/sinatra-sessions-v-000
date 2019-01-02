@@ -1,6 +1,7 @@
 require_relative 'config/environment'
 
 class App < Sinatra::Base
+  
   configure do
     enable :sessions unless test?
     set :session_secret, "secret"
@@ -18,8 +19,10 @@ class App < Sinatra::Base
     "Your first exercise will be to set your session key-value pair.\nIn the route: get '/set', write a line of code that sets the :foo key of the session hash equal to 'hello'.\nThen, navigate to the '/set' path."
   end
 
-  get '/set' do
-    # set the :foo key of the session hash equal to 'hello' here!
+  get '/set' 
+  
+    session[:foo] = 'hello'
+    
     if session[:foo] == 'hello'
       redirect '/fetch'
     else
@@ -58,4 +61,4 @@ class App < Sinatra::Base
   get '/finish' do
     "Hopefully that explains a little more about the concept of sessions.\nThe session is simply a way to store user data on a temporary basis.\nIn any web application, a user ID is typically used as a session ID.\nThis is because an ID attribute of a user is a unique identifier\nthat will always be distinguishable from other user ID attributes."
   end
-end
+end 
